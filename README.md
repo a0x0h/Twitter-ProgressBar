@@ -13,11 +13,11 @@ Twitter Automation to set a progress bar in the **Persian** calendar. _**(Upload
 - **#3 Twitter API (IMPORTANT):**
 
   V2/V1 -> Auth, Post:
-  - Just put your API/Consumer, access key and secret in the main.py
+  - Just put your API/Consumer, access key, and secret in the main.py
   - We need both v2 & v1 API to Authenticate.
   
   V1 (limitation) -> Upload Media (Photo):
-  - Media Id Should be list
+  - Media ID should be list type:
         
         media = api.media_upload("PATH\image.jpg", chunked=True, media_category="tweet_image")
         media_ids = [media.media_id]
