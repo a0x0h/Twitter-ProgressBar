@@ -1,7 +1,7 @@
 import tweepy
 import picture
 
-bearer_token = r"BAERER_TOKEN" #Just put it for future usag
+bearer_token = r"BAERER_TOKEN" #Just put it for future usage
 
 consumer_key = " YOUR CONSUMER_KEY"
 consumer_secret = "CONSUMER_SECRET"
