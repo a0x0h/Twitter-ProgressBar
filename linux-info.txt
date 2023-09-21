@@ -1,0 +1,54 @@
+Create a Systemd Service Unit:
+
+#Create a systemd service unit file (e.g., your_script.service) to define the service and specify the path to your Python script:
+
+            [Unit]
+            Description=Your Python Script Service
+
+            [Service]
+            Type=oneshot
+            ExecStart=/usr/bin/python3 /path/to/your_script.py
+
+            [Install]
+            WantedBy=multi-user.target
+#Replace /usr/bin/python3 with the path to your Python interpreter (you can find it by running which python3) and /path/to/your_script.py with the actual path to your Python script.
+
+Create a Systemd Timer Unit:
+
+Create a systemd timer unit file (e.g., your_script.timer) to define the timer:
+
+
+            [Unit]
+            Description=Run Your Python Script Every 5 Days
+
+            [Timer]
+            OnBootSec=5days
+            OnUnitActiveSec=5days
+            Unit=your_script.service
+
+            [Install]
+            WantedBy=timers.target
+            This configuration schedules the service to run every 5 days starting from boot or whenever the timer becomes active.
+
+Enable and Start the Timer:
+
+Enable the timer to ensure it starts at boot:
+
+            sudo systemctl enable your_script.timer
+
+Start the timer:
+
+            sudo systemctl start your_script.timer
+
+Check Timer Status:
+
+You can check the status of the timer using:
+
+        sudo systemctl list-timers
+
+
+This will display a list of active timers along with their next run time.
+
+Now, your Python script will be executed every 5 days, and it will also run automatically after a server restart.
+
+Please make sure to replace your_script.py and adjust paths as needed in the service and timer unit files to match your specific script and directory structure.
